@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Aula 08</title>
+	<link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css">
+	<script type="text/javascript" src="../extjs/ext-all.js"></script>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	
+	Ext.define('Aula08.componente.MeuBotao', {
+			extend: 'Ext.button.Button',
+			//prefixo widget
+			alias: 'widget.meubotao', 
+			//text: 'Meu Botao',
+			//renderTo: Ext.getBody(), 
+			initComponent: function(){
+				this.text = 'Meu Botao';
+
+				//chamar o metodo initcomponent e sobreescrever o código
+				this.callParent();
+			}
+		});
+
+	Ext.onReady(function(){
+		//estanciando o botão usando o alias, definido na criação da classe do botão
+		//prefixo widget
+		Ext.widget('meubotao', {
+			//renderizar no body html
+			renderTo: Ext.getBody()
+		});
+
+		Ext.create('Ext.window.Window', {
+	    title: 'Hello',
+	    height: 200,
+	    width: 400,
+	   //testando array de buttons
+	   
+	    items: [{ 
+	    	xtype: 'button',
+	    	text: 'botao'
+	    }, 
+	    { 
+	    	xtype: 'button',
+	    	text: 'botao2'
+	    }]
+	}).show();
+
+
+
+	});
+	
+</script>
+</html>

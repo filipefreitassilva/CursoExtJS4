@@ -1,0 +1,68 @@
+<html>
+<head>
+	
+	<link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css">
+	<script type="text/javascript" src="../extjs/ext-all.js"></script>
+
+</head>
+<body>
+
+</body>
+
+	<script type="text/javascript">
+	
+	Ext.define('Funcionario', {
+		extend: 'Ext.data.Model',
+		fields: [
+			{name: 'nome'}, //type: auto
+			{name: 'idade', type: 'int'},
+			{name: 'salario', type:'float'},
+			{name: 'ativo', type: 'boolean'},
+			{name: 'nasc', type:'date', dateFormat: 'd/m/Y'},
+			{name: 'usuario', type:'string'},
+			{name: 'sexo', type: 'string'},
+			{name: 'email', type:'string', 
+					convert: function (value, record){
+						return record.get('usuario') + '@tce.com';
+					}
+				}
+			
+		],
+		validations : [
+			{type: 'presence', field: 'nome'},
+			{type: 'length', field: 'usuario', min: 6, max:10},
+			{type: 'inclusion', field: 'sexo', list: ['F', 'M']},
+			{type: 'exclusion', field: 'idade', list:[0]},
+			{type: 'format', field: 'nome', matcher: /([a-z]+)/},
+
+		] 
+	});
+	// fields todos AUTO
+	Ext.define('Contato', {
+		extend: 'Ext.data.Model',
+		fields: [ 'id', 'numero']
+	});
+
+	Ext.onReady(function(){
+		//recomendado!!!
+		 var funcionario = Ext.create('Funcionario', {
+			idade:21,
+			ativo: true,
+			nome: 'Filipe Freitas da Silva',
+			usuario: 'filipe',
+			sexo: 'F'
+
+		}); 
+		 
+		console.log(funcionario);
+
+		var errors = funcionario.validate();
+
+		console.log(errors.isValid());
+		console.log(errors.items);
+		console.log(errors.getByField('sexo'));
+
+	});
+	</script>
+
+</html>

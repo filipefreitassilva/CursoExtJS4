@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Aula 10</title>
+	<link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all.css">
+	<script type="text/javascript" src="extjs/ext-dev.js"></script>
+	
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+
+	//carregamento dinamico
+	Ext.Loader.setConfig({
+		enabled:true,
+		paths: {
+			'CursoExtJS4' : 'js',
+			'Ext' : 'extjs/src'
+		}
+	});
+	Ext.onReady(function(){
+
+		Ext.create('CursoExtJS4.classe.Usuario');
+	});
+</script>
+</html>

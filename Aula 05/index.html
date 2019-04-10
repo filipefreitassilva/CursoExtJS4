@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Aula 05 - ExtJS 4</title>
+	<link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css">
+	<script type="text/javascript" src="../extjs/ext-all.js"></script>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+
+
+	//Definindo a classe, com nome e seus atributos e seu callback
+		//se quiser colcoar nome unico, ou colocar o nome do pacote tbm
+		Ext.define('CursoExtJS4.aula05.Usuario', {
+			nome: '',
+			senha: '',
+			//criando o construtor
+			constructor: function(options){
+				Ext.apply(this, options || {});
+
+				console.log('construtor foi chamado!');
+			},
+			login: function() {
+				console.log('fazendo login...');
+			}, 
+
+			logout: function(){
+				console.log('fazendo logout...');
+			}
+		},
+			//callback é chamado após a criação da classe
+			function(){
+				console.log('callback foi chamado...');
+			}
+		);
+
+	//iniciando o ExtJS
+	Ext.onReady(function(){
+
+
+		//instanciando uma classe
+		//passando as opções
+		var usuario = Ext.create('CursoExtJS4.aula05.Usuario', { 
+			nome: 'Filipe Freitas', 
+			senha: 'Teste123'});
+
+		console.log(usuario);
+
+	});
+
+</script>
+</html>

@@ -1,0 +1,74 @@
+<html>
+<head>
+	
+	<link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css">
+	<script type="text/javascript" src="../extjs/ext-all.js"></script>
+
+</head>
+<body>
+
+</body>
+
+	<script type="text/javascript">
+	
+	Ext.define('Funcionario', {
+		extend: 'Ext.data.Model',
+		fields: [
+			{name: 'nome'}, //type: auto
+			{name: 'idade', type: 'int'},
+			{name: 'salario', type:'float'},
+			{name: 'ativo', type: 'boolean'},
+			{name: 'nasc', type:'date', dateFormat: 'd/m/Y'},
+			{name: 'usuario', type:'string'},
+			{name: 'email', type:'string', 
+					convert: function (value, record){
+						return record.get('usuario') + '@tce.com';
+					}
+				}
+		] 
+	});
+	// fields todos AUTO
+	Ext.define('Contato', {
+		extend: 'Ext.data.Model',
+		fields: [ 'id', 'numero']
+	});
+
+	Ext.onReady(function(){
+		//recomendado!!!
+		/* var funcionario = Ext.create('Funcionario', {
+			nome: 'Filipe Freitas',
+			idade: 21,
+			salario: 1.000,
+			ativo: true,
+			nasc: '18/11/1997',
+			usuario: 'filipe'
+		}); */
+		//deprecated
+		 var funcionario = Ext.ModelManager.create ({
+			nome: 'Filipe Freitas',
+			idade: 21,
+			salario: 1.000,
+			ativo: true,
+			nasc: '18/11/1997',
+			usuario: 'filipe'
+		}, 'Funcionario');
+/*
+	 var funcionario = new Funcionario({
+			nome: 'Filipe Freitas',
+			idade: 21,
+			salario: 1.000,
+			ativo: true,
+			nasc: '18/11/1997',
+			usuario: 'filipe'
+		}); */
+
+		console.log(funcionario);
+		console.log(funcionario.get('nome'));
+		console.log(funcionario.get('idade'));
+		funcionario.set('idade', 15);
+		console.log(funcionario.get('idade'));
+
+	});
+	</script>
+
+</html>

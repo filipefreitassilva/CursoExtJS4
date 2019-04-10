@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Aula 06</title>
+	<link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css">
+	<script type="text/javascript" src="../extjs/ext-all.js"></script>
+</head>
+<body>
+<div id="botao01"></div>
+<div id="botao02"></div>
+<div id="botao03"></div>
+</body>
+
+<script type="text/javascript">
+	
+
+		Ext.define('MeuBotao', {
+			extend: 'Ext.button.Button',
+			//text: 'Meu Botao',
+			//renderTo: Ext.getBody(), 
+			initComponent: function(){
+				this.text = 'Meu Botao';
+
+				//chamar o metodo initcomponent e sobreescrever o código
+				this.callParent();
+			}
+		});
+
+	Ext.onReady(function(){
+			// posso colocar no MeuBotao o nome da superclasse button Ext.button.Button
+			//sem precisar definir o meu botão lá encima
+			//e colocando o nome em cada igual comentado abaixo
+		Ext.create('MeuBotao',{
+			renderTo: 'botao01'
+			//text: 'Meu Botao'
+		});
+	
+
+		Ext.create('MeuBotao', {
+			renderTo: 'botao02'
+		});
+	
+
+		Ext.create('MeuBotao', {
+			renderTo: 'botao03'
+		});
+	});
+
+</script>
+</html>

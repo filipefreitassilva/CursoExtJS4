@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Aula 09</title>
+	<link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css">
+	<script type="text/javascript" src="../extjs/ext-all.js"></script>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	//configs
+	Ext.define('Usuario', {
+		//quando usa o config ele já cria 4 metodos automaticamente
+		config: {
+			nome: '',
+			senha:''
+		},
+		//sobreescrevendo o comportamento do metodo setnome, para aparecer um * no final do nome
+		setNome : function(n){
+			this.nome = n + '*';
+		}
+	});
+	//statics
+	Ext.define('Calculadora', {
+		//para criar atributos estaticos, precisa estar dentro do statics
+		statics: {
+			numero: 0,
+
+			soma: function(num1, num2){
+				return num1 + num2;
+			}
+		},
+
+		constructor : function(){
+			this.statics().numero++;
+		}
+	});
+	//singletons
+	//classe de constantes é interessante por agilizar vários comandos
+	Ext.define('Constantes', {
+
+		singleton: true,
+		URL_SITE: 'http://youtube.com',
+		URL_SITE2: 'http://facebook.com'
+	});
+
+	Ext.onReady(function(){
+		/*
+		var usuario = Ext.create('Usuario');
+		usuario.setNome('Filipe');
+		usuario.setSenha('123');
+		console.log(usuario.getNome());
+		console.log(usuario.getSenha());
+		*/
+		//acessando a classe static]
+		/*
+		console.log(Calculadora.numero);
+		var calc = Ext.create('Calculadora');
+		console.log(Calculadora.numero);
+		console.log(Calculadora.soma(1,2));
+		*/
+		//se ela for um singleton, ela não pode ser instanciada
+		//var cons = Ext.create('Constantes');
+
+		//acessamos os atributos pelo modelo statics
+
+		console.log(Constantes.URL_SITE);
+		console.log(Constantes.URL_SITE2);
+
+	});
+	
+</script>
+</html>

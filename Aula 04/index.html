@@ -1,0 +1,32 @@
+<html>
+<head>
+	
+	<link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css">
+	<script type="text/javascript" src="../extjs/ext-all.js"></script>
+	<script type="text/javascript" src="../jquery/jquery.js"></script>
+
+</head>
+<body>
+	<div id="panelCt"></div>
+</body>
+
+	<script type="text/javascript">
+	//Ext.onReady(function(){ //chamada do extjs
+	$(document).ready(function(){	//chamada do jquery
+		Ext.create('widget.panel', {
+	        
+	        renderTo: 'panelCt',
+	        
+	        title: 'ExtJS 4 Panel',
+	        width: 400,
+	        height: 300,
+	        frame: true,
+	        
+	        html: "<div id='contentID'></div>"
+	    });
+		
+		$('#contentID').load('content.html'); //adicionando o conteudo do content no panel extjs
+	});
+	</script>
+
+</html>
