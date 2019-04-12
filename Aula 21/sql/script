@@ -1,0 +1,22 @@
+CREATE SCHEMA IF NOT EXISTS `cursoextjs4` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
+USE `cursoextjs4` ;
+
+-- -----------------------------------------------------
+-- Table `cursoextjs4`.`contato`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `cursoextjs4`.`contato` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `nome` VARCHAR(45) NOT NULL ,
+  `email` VARCHAR(45) NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Data for table `cursoextjs4`.`contato`
+-- -----------------------------------------------------
+SET AUTOCOMMIT=0;
+USE `cursoextjs4`;
+INSERT INTO `cursoextjs4`.`contato` (`id`, `nome`, `email`) VALUES ('1', 'Contact1', 'contact1@email.com');
+INSERT INTO `cursoextjs4`.`contato` (`id`, `nome`, `email`) VALUES ('2', 'Contact2', 'contact2@email.com');
+
+COMMIT;
