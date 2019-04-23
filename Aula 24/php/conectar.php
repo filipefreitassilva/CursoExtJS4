@@ -1,7 +1,7 @@
 <?php
  
 //nome do servidor (127.0.0.1)
-$servidor = "127.0.0.1";
+$servidor = "localhost";
  
 //usuário do banco de dados
 $user = "root";
